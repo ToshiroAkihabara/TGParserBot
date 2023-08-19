@@ -1,6 +1,7 @@
 # Telegram Bot with Parser of Data
 
-![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)(https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
+![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
+![Bot](https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
 
 
 The sample an automation Python Script to get of data.
