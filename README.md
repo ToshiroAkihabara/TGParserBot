@@ -4,10 +4,6 @@
 ![Bot](https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
 
 
-The sample an automation Python Script to get of data.
-The script was realised on base an open online [store](https://pitergsm.ru).
-This README was created to help install and use the script.
-Sure, you could to use the script as a sample in your projects.
 # Installation
 
 Clone this repository and install the dependencies:
