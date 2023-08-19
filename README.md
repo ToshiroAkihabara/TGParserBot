@@ -1,6 +1,6 @@
 # Telegram Bot with Parser of Data
 
-![PiterGSM](https://github.com/ToshiroAkihabara/icons/blob/main/139837223-bf23d3a9-4638-4e17-994a-ac8678d5f517.png)
+![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
 
 
 The sample an automation Python Script to get of data.
