@@ -1,7 +1,7 @@
 # Telegram Bot with Parser of Data
 
 <div id="header" align="center">
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjRibzRqZ2YycmJuNWxreXhxczU4MzkxYjJ4NHl1a25iNXIwMWw4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EuMes40JZirYe18nYY/giphy.gif" width="500"/>
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjRibzRqZ2YycmJuNWxreXhxczU4MzkxYjJ4NHl1a25iNXIwMWw4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EuMes40JZirYe18nYY/giphy.gif" width="200"/>
 </div>
 
 ![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
