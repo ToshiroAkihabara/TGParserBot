@@ -44,6 +44,7 @@ Run the main file to start:
 python PiterGSM_bot.py
 ```
 The bot will send you a notification message in private chat of telegram after running. 
+
 You have access the following commands:
 
 - /start - Run the bot; 
