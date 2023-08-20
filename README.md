@@ -4,9 +4,6 @@
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjRibzRqZ2YycmJuNWxreXhxczU4MzkxYjJ4NHl1a25iNXIwMWw4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EuMes40JZirYe18nYY/giphy.gif" width="100"/>
 </div>
 
-![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
-![Bot](https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
-
 Continuation of the previous project where we was parsed some data from the [site](https://pitergsm.ru/). 
 Now, I combined previous function with a bot in telegram together using aiogram library. 
 The bot could send you a data from site to you in the private chat of telegram in real life. 
