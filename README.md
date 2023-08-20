@@ -2,6 +2,10 @@
 
 ![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
 ![Bot](https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
+Continuation of the previous project where we was parsed some data from the [site](https://pitergsm.ru/). 
+Now, I combined previous function with a bot in telegram together using aiogram library. 
+The bot could send you a data from site to you in the private chat of telegram in real life. 
+You could use the bot as it is if you want but my recomendation to remake it for your own project.
 
 
 # Installation
@@ -32,12 +36,12 @@ After that you must to delete the file extension of .env.example. In finally you
 
 # Usage
 
-Run the main file: 
+Run the main file to starting of bot: 
 ```
-python piterGSM.py
+python PiterGSM_bot.py
 ```
-After running the script it'll create a new catalog "json_files" with json files and a new catalog "csv_files" with csv files.
-# Feedback
+After running the bot will send you a notification message in private chat of telegram. 
+
 
 This is my a first project in python. I'll glad to see the feedback.
 # License
