@@ -46,7 +46,7 @@ There are some photos of project working process below:
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="270"/>
 </div>
 
-Run the main file to starting of bot: 
+Run the main file to start: 
 ```
 python PiterGSM_bot.py
 ```
