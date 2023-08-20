@@ -38,7 +38,8 @@ After that you must to delete the file extension of .env.example. In finally you
 # Usage
 There are some photos of project working process below:
 
-![Menu](https://github.com/ToshiroAkihabara/icons/blob/main/photos/menu.png)![Models](https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png)
+![Menu](https://github.com/ToshiroAkihabara/icons/blob/main/photos/menu.png)
+![Models](https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png)![Iphones](https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png)
 
 Run the main file to starting of bot: 
 ```
