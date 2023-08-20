@@ -47,6 +47,7 @@ The bot will send you a notification message in private chat of telegram after r
 You have access the following commands:
 
 /start - Run the bot 
+
 /help - Command list
 
 There are some photos of project working process below:
