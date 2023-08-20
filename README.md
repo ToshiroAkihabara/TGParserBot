@@ -38,6 +38,17 @@ After that you must to delete the file extension of .env.example. In finally you
 .env
 ```
 # Usage
+
+Run the main file to start: 
+```
+python PiterGSM_bot.py
+```
+The bot will send you a notification message in private chat of telegram after running. 
+
+You have access the following commands:
+/start - Run the bot 
+/help - Command list
+
 There are some photos of project working process below:
 
 <div id="header" align="center">
@@ -46,14 +57,6 @@ There are some photos of project working process below:
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="270"/>
 </div>
 
-Run the main file to start: 
-```
-python PiterGSM_bot.py
-```
-The bot will send you a notification message in private chat of telegram after running. 
-
-
-This is my a first project in python. I'll glad to see the feedback.
 # License
 
 [MIT License](https://choosealicense.com/licenses/mit/)
