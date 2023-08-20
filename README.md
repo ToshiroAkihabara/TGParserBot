@@ -36,6 +36,8 @@ You can get secret TOKEN from [Bot Father](https://t.me/bote_father) and ADMIN_I
 After that you must to delete the file extension of .env.example. In finally you have file .env without any extension. 
 
 # Usage
+There are some photos of project working process below:
+![Menu[(https://github.com/ToshiroAkihabara/icons/blob/main/photos/menu.png)
 
 Run the main file to starting of bot: 
 ```
