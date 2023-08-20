@@ -50,7 +50,7 @@ Run the main file to start:
 ```
 python PiterGSM_bot.py
 ```
-After running the bot will send you a notification message in private chat of telegram. 
+The bot will send you a notification message in private chat of telegram after running. 
 
 
 This is my a first project in python. I'll glad to see the feedback.
