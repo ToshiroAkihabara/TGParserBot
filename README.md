@@ -51,7 +51,7 @@ You have access the following commands:
 
 - /help - Command list.
 
-There are some photos of project working process below:
+There are some photos of the project working process below:
 <div id="header" align="center">
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="262"/>
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="250"/>
