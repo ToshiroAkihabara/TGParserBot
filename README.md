@@ -40,7 +40,7 @@ There are some photos of project working process below:
 
 <div id="header" align="left">
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/menu.png" width="500"/>
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="300"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="400"/>
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="300"/>
 </div>
 
