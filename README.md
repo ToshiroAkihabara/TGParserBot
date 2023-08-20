@@ -44,13 +44,12 @@ Run the main file to start:
 python PiterGSM_bot.py
 ```
 The bot will send you a notification message in private chat of telegram after running. 
-
 You have access the following commands:
+
 /start - Run the bot 
 /help - Command list
 
 There are some photos of project working process below:
-
 <div id="header" align="center">
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="262"/>
 <img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="250"/>
