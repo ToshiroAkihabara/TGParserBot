@@ -39,9 +39,9 @@ After that you must to delete the file extension of .env.example. In finally you
 There are some photos of project working process below:
 
 <div id="header" align="center">
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="400"/>
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="400"/>
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="400"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="250"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="250"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="250"/>
 </div>
 
 Run the main file to starting of bot: 
