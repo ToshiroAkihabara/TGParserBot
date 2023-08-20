@@ -1,0 +1,8 @@
+.env
+__pycache__/
+venv/
+test.py/
+handlers/__pycache__/
+markups/__pycache__/
+parser/__pycache__
+photos/
