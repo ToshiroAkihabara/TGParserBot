@@ -12,7 +12,7 @@ You could use the bot as it is if you want but my recomendation to remake it for
 
 # Installation
 
-Clone this repository and install the dependencies:
+Clone this repository:
 ```
 git clone https://github.com/ToshiroAkihabara/TGParserBot
 ```
