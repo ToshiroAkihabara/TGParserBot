@@ -23,17 +23,18 @@ Activate the virtual enviroment:
 ```
 venv\Scripts\activate
 ```
-Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies.
+Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies:
 ```
 pip install -r requirements.txt
 ```
-Open the .env.example and change a secret data inside. 
+Open the .env.example and change a secret data inside: 
 ```
 TOKEN=YOUR_TOKEN
 ADMIN=YOUR_ADMIN_ID
 ```
 You can get secret TOKEN from [Bot Father](https://t.me/bote_father) and ADMIN_ID from this [bot](https://t.me/username_to_id_bot).
-After that you must to delete the file extension of .env.example. In finally you have file .env without any extension. 
+After that you must to delete the file extension of .env.example. 
+In finally you have file .env without any extension:
 ```
 .env
 ```
