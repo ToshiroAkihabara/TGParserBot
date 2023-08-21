@@ -14,23 +14,14 @@ You could use the bot as it is if you want but my recomendation to remake it for
 
 Clone this repository:
 ```
-git clone https://github.com/ToshiroAkihabara/TGParserBot
+$ git clone https://github.com/ToshiroAkihabara/TGParserBot
 ```
-Open the repository and create a new virtual enviroment on Windows:
+Create, a new virtual enviroment, activate it for Windows, Linux & MacOS and install required dependencies:
 ```
-python -m venv venv
-```
-Activate the virtual enviroment for Windows:
-```
-venv\Scripts\activate
-```
-Activate the virtual enviroment for Linux & MacOS :
-```
-source venv/bin/activate
-```
-Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies:
-```
-pip install -r requirements.txt
+$ python -m venv venv
+$ venv\Scripts\activate
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 ```
 Open the .env.example and change a secret data inside: 
 ```
@@ -48,7 +39,7 @@ In finally you have file .env without any extension:
 
 Run the main file to start: 
 ```
-python PiterGSM_bot.py
+$ python PiterGSM_bot.py
 ```
 The bot will send you a notification message in private chat of telegram after running. 
 
