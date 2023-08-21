@@ -1,7 +1,8 @@
 # Telegram Bot with Parser of Data
 
-![Telegram](https://github.com/ToshiroAkihabara/icons/blob/main/telegram_icon-icons.com_72055%20(1).png)
-![Bot](https://github.com/ToshiroAkihabara/icons/blob/main/user_bot_robot_icon_146900.png)
+<div id="header" align="center">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjRibzRqZ2YycmJuNWxreXhxczU4MzkxYjJ4NHl1a25iNXIwMWw4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EuMes40JZirYe18nYY/giphy.gif" width="100"/>
+</div>
 
 Continuation of the previous project where we was parsed some data from the [site](https://pitergsm.ru/). 
 Now, I combined previous function with a bot in telegram together using aiogram library. 
@@ -11,7 +12,7 @@ You could use the bot as it is if you want but my recomendation to remake it for
 
 # Installation
 
-Clone this repository and install the dependencies:
+Clone this repository:
 ```
 git clone https://github.com/ToshiroAkihabara/TGParserBot
 ```
@@ -23,28 +24,43 @@ Activate the virtual enviroment:
 ```
 venv\Scripts\activate
 ```
-Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies.
+Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies:
 ```
 pip install -r requirements.txt
 ```
-Open the .env.example and change a secret data inside. 
+Open the .env.example and change a secret data inside: 
 ```
 TOKEN=YOUR_TOKEN
 ADMIN=YOUR_ADMIN_ID
 ```
 You can get secret TOKEN from [Bot Father](https://t.me/bote_father) and ADMIN_ID from this [bot](https://t.me/username_to_id_bot).
-After that you must to delete the file extension of .env.example. In finally you have file .env without any extension. 
+After that you must to delete the file extension of .env.example. 
 
+In finally you have file .env without any extension:
+```
+.env
+```
 # Usage
 
-Run the main file to starting of bot: 
+Run the main file to start: 
 ```
 python PiterGSM_bot.py
 ```
-After running the bot will send you a notification message in private chat of telegram. 
+The bot will send you a notification message in private chat of telegram after running. 
 
+You have access the following commands:
 
-This is my a first project in python. I'll glad to see the feedback.
+- /start - Run the bot; 
+
+- /help - Command list.
+
+There are some photos of the project working process below:
+<div id="header" align="center">
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="262"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="250"/>
+<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="270"/>
+</div>
+
 # License
 
 [MIT License](https://choosealicense.com/licenses/mit/)
