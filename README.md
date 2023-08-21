@@ -28,7 +28,7 @@ Open the .env.example and change a secret data inside:
 TOKEN=YOUR_TOKEN
 ADMIN=YOUR_ADMIN_ID
 ```
-You can get secret TOKEN from [Bot Father](https://t.me/BotFather) and get ADMIN_ID from this [bot](https://t.me/username_to_id_bot).
+You can get secret TOKEN from [BotFather](https://t.me/BotFather) and get ADMIN_ID from this [bot](https://t.me/username_to_id_bot).
 
 Rename the file ```.env.example``` to ```.env```
 
