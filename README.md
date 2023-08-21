@@ -56,9 +56,9 @@ You have access the following commands:
 
 There are some photos of the project working process below:
 <div id="header" align="center">
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/mainmenu.png" width="262"/>
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/models.png" width="250"/>
-<img src="https://github.com/ToshiroAkihabara/icons/blob/main/photos/iphones.png" width="270"/>
+<img src="https://github.com/ToshiroAkihabara/TGParserBot/blob/main/photos/mainmenu.png" width="262"/>
+<img src="https://github.com/ToshiroAkihabara/TGParserBot/blob/main/photos/models.png" width="250"/>
+<img src="https://github.com/ToshiroAkihabara/TGParserBot/blob/main/photos/iphones.png" width="270"/>
 </div>
 
 # License
