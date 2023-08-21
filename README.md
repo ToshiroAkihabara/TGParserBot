@@ -20,9 +20,13 @@ Open the repository and create a new virtual enviroment on Windows:
 ```
 python -m venv venv
 ```
-Activate the virtual enviroment:
+Activate the virtual enviroment for Windows:
 ```
 venv\Scripts\activate
+```
+Activate the virtual enviroment for Linux & MacOS :
+```
+source venv/bin/activate
 ```
 Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the project dependencies:
 ```
