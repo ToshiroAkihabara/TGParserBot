@@ -36,14 +36,12 @@ async def main() -> None:
         
         @router.message(F.text == 'Запустить')
         async def start(message: types.Message):
-            await message.answer_animation('CgACAgQAAxkBAAIdBGSaGNE6m_SoTdj3zWZFYN5zIbiBAAIcAwACmiskUy71u3kfogaALwQ')
             await message.answer('Добро пожаловать в парсер актуальных цен сайта https://pitergsm.ru/\nВыберите интересующий каталог:',\
                                 reply_markup=user_markups.catalogs())
             await message.delete()
 
         @router.message(Command('start'))
         async def start(message: types.Message):
-            await message.answer_animation('CgACAgQAAxkBAAIdBGSaGNE6m_SoTdj3zWZFYN5zIbiBAAIcAwACmiskUy71u3kfogaALwQ')
             await message.answer('Добро пожаловать в парсер актуальных цен сайта https://pitergsm.ru/\nВыберите интересующий каталог:',\
                                 reply_markup=user_markups.catalogs())
 
