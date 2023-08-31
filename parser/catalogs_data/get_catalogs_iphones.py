@@ -1,127 +1,62 @@
 from parser.parser_data import get_all_catalogs, get_pagination
 
-def iphone_14_pro_max():
+def get_catalogs_iphone(range: int) -> dict:
     catalog = get_all_catalogs.iphones()
     dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[0]):
+    for catalog_name, last_page in get_pagination.pagination(catalog[range]):
         dict[catalog_name] = last_page
     return dict
 
-def iphone_14_pro():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[1]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_14_pro_max() -> dict:
+    return get_catalogs_iphone(0)
 
-def iphone_14_plus():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[2]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_14_pro() -> dict:
+    return get_catalogs_iphone(1)
 
-def iphone_14():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[3]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_14_plus() -> dict:
+    return get_catalogs_iphone(2)
 
-def iphone_13_pro_max():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[4]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_14() -> dict:
+    return get_catalogs_iphone(3)
 
-def iphone_13_pro():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[5]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_13_pro_max() -> dict:
+    return get_catalogs_iphone(4)
 
-def iphone_13():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[6]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_13_pro() -> dict:
+    return get_catalogs_iphone(5)
 
-def iphone_13_mini():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[7]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_13() -> dict:
+    return get_catalogs_iphone(6)
 
-def iphone_12_pro_max():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[8]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_13_mini() -> dict:
+    return get_catalogs_iphone(7)
 
-def iphone_12_pro():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[9]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_12_pro_max() -> dict:
+    return get_catalogs_iphone(8)
 
-def iphone_12():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[10]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_12_pro() -> dict:
+    return get_catalogs_iphone(9)
 
-def iphone_12_mini():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[11]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_12() -> dict:
+    return get_catalogs_iphone(10)
 
-def iphone_11_pro_max():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[12]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_12_mini() -> dict:
+    return get_catalogs_iphone(11)
 
-def iphone_11_pro():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[13]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_11_pro_max() -> dict:
+    return get_catalogs_iphone(12)
 
-def iphone_11():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[14]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_11_pro() -> dict:
+    return get_catalogs_iphone(13)
 
-def iphone_se_2020():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[15]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_11() -> dict:
+    return get_catalogs_iphone(14)
 
-def iphone_se_2022():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[16]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_se_2020() -> dict:
+    return get_catalogs_iphone(15)
 
-def iphone_xr():
-    catalog = get_all_catalogs.iphones()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination_(catalog[17]):
-        dict[catalog_name] = last_page
-    return dict
+def iphone_se_2022() -> dict:
+    return get_catalogs_iphone(16)
+
+def iphone_xr() -> dict:
+    return get_catalogs_iphone(17)

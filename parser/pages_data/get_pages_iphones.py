@@ -1,146 +1,83 @@
 from parser.catalogs_data import get_catalogs_iphones
 
-def page_iphone_14_pro_max():
-    for key, count in get_catalogs_iphones.iphone_14_pro_max().items():
+def get_pages_iphone(func) -> list:
+    def wrapper():
         links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
+        for key, count in func():
+            for count in range(1, count+1):
+                url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
+                links.append(url)
         return links
+    return wrapper
 
-def page_iphone_14_pro():
-    for key, count in get_catalogs_iphones.iphone_14_pro().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_14_pro_max() -> dict:
+    return get_catalogs_iphones.iphone_14_pro_max().items()
+
+@get_pages_iphone
+def page_iphone_14_pro() -> dict:
+    return get_catalogs_iphones.iphone_14_pro().items()
+
+@get_pages_iphone
+def page_iphone_14_plus() -> dict:
+    return get_catalogs_iphones.iphone_14_plus().items()
+
+@get_pages_iphone
+def page_iphone_14() -> dict:
+    return get_catalogs_iphones.iphone_14().items()
+
+@get_pages_iphone
+def page_iphone_13_pro_max() -> dict:
+    return get_catalogs_iphones.iphone_13_pro_max().items()
     
-def page_iphone_14_plus():
-    for key, count in get_catalogs_iphones.iphone_14_plus().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_iphone_14():
-    for key, count in get_catalogs_iphones.iphone_14().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_iphone_13_pro_max():
-    for key, count in get_catalogs_iphones.iphone_13_pro_max().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_iphone_13_pro():
-    for key, count in get_catalogs_iphones.iphone_13_pro().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_13_pro() -> dict:
+    return get_catalogs_iphones.iphone_13_pro().items()
 
-def page_iphone_13():
-    for key, count in get_catalogs_iphones.iphone_13().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_13() -> dict:
+    return get_catalogs_iphones.iphone_13().items()
 
-def page_iphone_13_mini():
-    for key, count in get_catalogs_iphones.iphone_13_mini().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_13_mini() -> dict:
+    return get_catalogs_iphones.iphone_13_mini().items()
 
-def page_iphone_12_pro_max():
-    for key, count in get_catalogs_iphones.iphone_12_pro_max().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_12_pro_max() -> dict:
+    return get_catalogs_iphones.iphone_12_pro_max().items()
 
-def page_iphone_12_pro():
-    for key, count in get_catalogs_iphones.iphone_12_pro().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_iphone_12():
-    for key, count in get_catalogs_iphones.iphone_12().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_12_pro() -> dict:
+    return get_catalogs_iphones.iphone_12_pro().items()
 
-def page_iphone_12_mini():
-    for key, count in get_catalogs_iphones.iphone_12_mini().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone    
+def page_iphone_12() -> dict:
+    return get_catalogs_iphones.iphone_12().items()
 
-def page_iphone_11_pro_max():
-    for key, count in get_catalogs_iphones.iphone_11_pro_max().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_iphone_11_pro():
-    for key, count in get_catalogs_iphones.iphone_11_pro().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_12_mini() -> dict:
+    return get_catalogs_iphones.iphone_12_mini().items()
 
-def page_iphone_11():
-    for key, count in get_catalogs_iphones.iphone_11().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_11_pro_max() -> dict:
+    return get_catalogs_iphones.iphone_11_pro_max().items()
 
-def page_iphone_se_2020():
-    for key, count in get_catalogs_iphones.iphone_se_2020().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_11_pro() -> dict:
+    return get_catalogs_iphones.iphone_11_pro().items()
 
-def page_iphone_se_2022():
-    for key, count in get_catalogs_iphones.iphone_se_2022().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_11() -> dict:
+    return get_catalogs_iphones.iphone_11().items()
 
-def page_iphone_xr():
-    for key, count in get_catalogs_iphones.iphone_xr().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_iphone
+def page_iphone_se_2020() -> dict:
+    return get_catalogs_iphones.iphone_se_2020().items()
+       
+@get_pages_iphone
+def page_iphone_se_2022() -> dict:
+    return get_catalogs_iphones.iphone_se_2022().items()
 
+@get_pages_iphone
+def page_iphone_xr() -> dict:
+    return get_catalogs_iphones.iphone_xr().items()

@@ -1,33 +1,28 @@
 from parser.catalogs_data import get_catalogs_ipads
 
-def page_ipad_pro():
-    for key, count in get_catalogs_ipads.ipad_pro().items():
+def get_pages_ipad(func) -> list:
+    def wrapper():
         links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
+        for key, count in func():
+            for count in range(1, count+1):
+                url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
+                links.append(url)
         return links
+    return wrapper
 
-def page_ipad_air():
-    for key, count in get_catalogs_ipads.ipad_air().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_ipad
+def page_ipad_pro() -> dict:
+    return get_catalogs_ipads.ipad_pro().items()
+
+@get_pages_ipad
+def page_ipad_air() -> dict:
+    return get_catalogs_ipads.ipad_air().items()
+
+@get_pages_ipad
+def page_ipad_mini() -> dict:
+    return get_catalogs_ipads.ipad_mini().items()
     
-def page_ipad_mini():
-    for key, count in get_catalogs_ipads.ipad_mini().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_ipad():
-    for key, count in get_catalogs_ipads.ipad().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+@get_pages_ipad
+def page_ipad() -> dict:
+    return get_catalogs_ipads.ipad().items()
+       

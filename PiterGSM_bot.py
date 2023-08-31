@@ -53,9 +53,7 @@ async def main() -> None:
 
         @router.callback_query(F.data == 'other')
         async def other(call: types.CallbackQuery):
-            await bot.send_message(call.from_user.id, 'Остальные каталоги по аналогии с открытым исходным кодом,\
-                                    вы сможете добавить сами.\nПриведенный функционал служит всего лишь примером \
-                                интеграции простого парсера данных в чат-бота телеграм.', reply_markup=user_markups.back())
+            await bot.send_message(call.from_user.id, 'Остальные каталоги по аналогии с открытым исходным кодом, вы сможете добавить сами.\nПриведенный функционал служит всего лишь примером интеграции простого парсера данных в чат-бота телеграм.', reply_markup=user_markups.back())
 
         @router.message()
         async def empty(message: types.Message):
