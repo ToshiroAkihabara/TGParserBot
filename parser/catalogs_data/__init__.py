@@ -1,3 +1,3 @@
-from . import get_catalogs_ipads
-from . import get_catalogs_iphones
-from . import get_catalogs_mac
+from parser.catalogs_data import get_catalogs_ipads
+from parser.catalogs_data import get_catalogs_iphones
+from parser.catalogs_data import get_catalogs_mac

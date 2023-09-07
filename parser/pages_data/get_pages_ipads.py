@@ -1,28 +1,28 @@
 from parser.catalogs_data import get_catalogs_ipads
+from parser.handlers.get_pages_handlers import get_pages
+from typing import TypeAlias, TypedDict
 
-def get_pages_ipad(func) -> list:
-    def wrapper():
-        links = []
-        for key, count in func():
-            for count in range(1, count+1):
-                url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-                links.append(url)
-        return links
-    return wrapper
+LinksOfPages: TypeAlias = list
 
-@get_pages_ipad
-def page_ipad_pro() -> dict:
+class Collection(TypedDict):
+    catalog_name: str
+    last_page: int
+
+@get_pages
+def page_ipad_pro() -> Collection:
     return get_catalogs_ipads.ipad_pro().items()
 
-@get_pages_ipad
-def page_ipad_air() -> dict:
+
+@get_pages
+def page_ipad_air() -> Collection:
     return get_catalogs_ipads.ipad_air().items()
 
-@get_pages_ipad
-def page_ipad_mini() -> dict:
+
+@get_pages
+def page_ipad_mini() -> Collection:
     return get_catalogs_ipads.ipad_mini().items()
-    
-@get_pages_ipad
-def page_ipad() -> dict:
+
+
+@get_pages
+def page_ipad() -> Collection:
     return get_catalogs_ipads.ipad().items()
-       

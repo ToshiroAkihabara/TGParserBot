@@ -1,23 +1,28 @@
-from parser.parser_data import get_all_catalogs, get_pagination
+from parser.handlers.get_catalogs_handler import get_catalog
+from typing import TypeAlias
 
-def catalogs_macbook(range: int) -> dict:
-    catalog = get_all_catalogs.mac()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination(catalog[range]):
-        dict[catalog_name] = last_page
-    return dict
+SliceOfPage: TypeAlias = int
 
-def macbook_pro() -> dict:
-    return catalogs_macbook(0)
+@get_catalog("mac")
+def macbook_pro() -> SliceOfPage:
+    return 0
 
-def macbook_air() -> dict:
-    return catalogs_macbook(1)
 
-def imac() -> dict:
-    return catalogs_macbook(2)
+@get_catalog("mac")
+def macbook_air() -> SliceOfPage:
+    return 1
 
-def mac_mini() -> dict:
-    return catalogs_macbook(3)
 
-def mac_studio() -> dict:
-    return catalogs_macbook(5)
+@get_catalog("mac")
+def imac() -> SliceOfPage:
+    return 2
+
+
+@get_catalog("mac")
+def mac_mini() -> SliceOfPage:
+    return 3
+
+
+@get_catalog("mac")
+def mac_studio() -> SliceOfPage:
+    return 5

@@ -5,6 +5,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-admin = os.getenv('ADMIN')
-bot = Bot(os.getenv('TOKEN'), parse_mode=ParseMode.HTML)
+admin = os.getenv("ADMIN")
+bot = Bot(os.getenv("TOKEN"), parse_mode=ParseMode.HTML)
 dp = Dispatcher()

@@ -1,21 +1,20 @@
-from parser.parser_data import get_all_catalogs, get_pagination
+from parser.handlers.get_catalogs_handler import get_catalog
+from typing import TypeAlias
 
-def catalogs_ipad(range: int) -> dict:
-    catalog = get_all_catalogs.ipad()
-    dict = {}
-    for catalog_name, last_page in get_pagination.pagination(catalog[range]):
-        dict[catalog_name] = last_page
-    return dict
+SliceOfPage: TypeAlias = int
 
-def ipad_pro() -> dict:
-    return catalogs_ipad(0)
+@get_catalog("ipad")
+def ipad_pro() -> SliceOfPage:
+    return 0
 
-def ipad_air() -> dict:
-    return catalogs_ipad(1)
+@get_catalog("ipad")
+def ipad_air() -> SliceOfPage:
+    return 1
 
-def ipad_mini() -> dict:
-    return catalogs_ipad(2)
+@get_catalog("ipad")
+def ipad_mini() -> SliceOfPage:
+    return 2
 
-def ipad() -> dict:
-    return catalogs_ipad(3)
-
+@get_catalog("ipad")
+def ipad() -> SliceOfPage:
+    return 3

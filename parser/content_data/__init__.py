@@ -1,3 +1,3 @@
-from . import get_content_ipads
-from . import get_content_iphones
-from . import get_content_mac
+from parser.content_data import get_content_ipads
+from parser.content_data import get_content_iphones
+from parser.content_data import get_content_mac

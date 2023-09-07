@@ -1,31 +1,32 @@
 from parser.catalogs_data import get_catalogs_mac
+from parser.handlers.get_pages_handlers import get_pages
+from typing import TypeAlias, TypedDict
 
-def get_pages_mac(func) -> list:
-    def wrapper():
-        links = []
-        for key, count in func():
-            for count in range(1, count+1):
-                url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-                links.append(url)
-        return links
-    return wrapper
-    
-@get_pages_mac
-def page_macbook_pro() -> dict:
+LinksOfPages: TypeAlias = list
+
+class Collection(TypedDict):
+    catalog_name: str
+    last_page: int
+
+@get_pages
+def page_macbook_pro() -> Collection:
     return get_catalogs_mac.macbook_pro().items()
 
-@get_pages_mac
-def page_macbook_air() -> dict:
+
+@get_pages
+def page_macbook_air() -> Collection:
     return get_catalogs_mac.macbook_air().items()
 
-@get_pages_mac
-def page_imac() -> dict:
+
+@get_pages
+def page_imac() -> Collection:
     return get_catalogs_mac.imac().items()
 
-@get_pages_mac
-def page_mac_mini() -> dict:
+
+@get_pages
+def page_mac_mini() -> Collection:
     return get_catalogs_mac.mac_mini().items()
 
-@get_pages_mac
-def page_mac_studio() -> dict:
+@get_pages
+def page_mac_studio() -> Collection:
     return get_catalogs_mac.mac_studio().items()
