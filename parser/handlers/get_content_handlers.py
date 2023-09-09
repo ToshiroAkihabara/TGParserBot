@@ -1,4 +1,4 @@
-from parser.handlers.headers import headers
+from parser.config import headers
 from bs4 import BeautifulSoup as BS
 from dataclasses import dataclass
 from typing import TypeAlias
@@ -8,6 +8,7 @@ import json
 Category: TypeAlias = str
 Urls: TypeAlias = list
 
+
 @dataclass(slots=True, frozen=True)
 class CardOfGoods:
     title: str
@@ -15,12 +16,15 @@ class CardOfGoods:
     price: int
     url: str
 
+
 def upload_content_to_files(category: Category) -> CardOfGoods:
     def wrapper_content(func: Urls):
         def wrapper():
-            all_data = []
+            cards = []
             for url in func():
-                if category == "iphone" or "mac":
+                if category == "iphone":
+                    name = url.split("/")[6].replace("-", "_")
+                elif category == "mac":
                     name = url.split("/")[6].replace("-", "_")
                 elif category == "ipad":
                     name = url.split("/")[7].replace("-", "_")
@@ -29,14 +33,14 @@ def upload_content_to_files(category: Category) -> CardOfGoods:
                 else:
                     raise AttributeError("Unknown value")
                 response = requests.get(url=url, headers=headers)
-                scr = response.text
-                soup = BS(scr, "lxml")
-                data = soup.find_all("div", class_="catalog__list like-cards")
-                for item in data:
-                    cards = item.find_all("div", class_="catalog__item")
-                    for card in cards:
+                html_code = response.text
+                parse = BS(html_code, "lxml")
+                catalogs = parse.find_all("div", class_="catalog__list like-cards")
+                for catalog in catalogs:
+                    items = catalog.find_all("div", class_="catalog__item")
+                    for card in items:
                         try:
-                            all_data.append(
+                            cards.append(
                                 {
                                     "title": card.find(
                                         "div", class_="prod-card__title"
@@ -57,21 +61,8 @@ def upload_content_to_files(category: Category) -> CardOfGoods:
                         except AttributeError:
                             continue
             with open(f"{name}.json", "w", encoding="utf-8") as file:
-                json.dump(all_data, file, indent=4, ensure_ascii=False)
+                json.dump(cards, file, indent=4, ensure_ascii=False)
+
         return wrapper
+
     return wrapper_content
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

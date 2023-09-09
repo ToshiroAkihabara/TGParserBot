@@ -1,15 +1,18 @@
 from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
+from typing import TypeAlias
+
+Builder: TypeAlias = InlineKeyboardBuilder().as_markup()
 
 
-def starts() -> InlineKeyboardBuilder:
+def starts() -> Builder:
     builder = InlineKeyboardBuilder()
     builder.add(InlineKeyboardButton(text="Запустить", callback_data="start"))
 
     return builder.as_markup()
 
 
-def catalogs() -> InlineKeyboardBuilder:
+def catalogs() -> Builder:
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(text="Айфоны", callback_data="iphone"),
@@ -23,7 +26,7 @@ def catalogs() -> InlineKeyboardBuilder:
     return builder.as_markup()
 
 
-def iphones() -> InlineKeyboardBuilder:
+def iphones() -> Builder:
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(
@@ -58,7 +61,7 @@ def iphones() -> InlineKeyboardBuilder:
     return builder.as_markup()
 
 
-def ipad() -> InlineKeyboardBuilder:
+def ipad() -> Builder:
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(text="Ipad", callback_data="ipad_"),
@@ -72,7 +75,7 @@ def ipad() -> InlineKeyboardBuilder:
     return builder.as_markup()
 
 
-def mac() -> InlineKeyboardBuilder:
+def mac() -> Builder:
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(text="Macbook Pro", callback_data="mac_book_pro"),
@@ -87,7 +90,7 @@ def mac() -> InlineKeyboardBuilder:
     return builder.as_markup()
 
 
-def back() -> InlineKeyboardBuilder:
+def back() -> Builder:
 
     builder = InlineKeyboardBuilder()
     builder.add(InlineKeyboardButton(text="Назад", callback_data="back"))

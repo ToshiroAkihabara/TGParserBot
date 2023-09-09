@@ -4,6 +4,7 @@ from typing import TypeAlias
 
 LinksOfPages: TypeAlias = list
 
+
 @upload_content_to_files("iphone")
 def iphone_14_pro_max() -> LinksOfPages:
     return get_pages_iphones.page_iphone_14_pro_max()
@@ -92,5 +93,3 @@ def iphone_se_2022() -> LinksOfPages:
 @upload_content_to_files("iphone")
 def iphone_xr() -> LinksOfPages:
     return get_pages_iphones.page_iphone_xr()
-
-

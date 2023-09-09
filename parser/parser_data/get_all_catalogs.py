@@ -8,7 +8,8 @@ import time
 Catalogs: TypeAlias = list
 SliceOfUrl: TypeAlias = int
 
-def saveCatalogsjson() -> Catalogs:
+
+def upload_catalogs_to_file() -> Catalogs:
     try:
         url = "https://pitergsm.ru/catalog/"
         response = requests.get(url=url, headers=headers)
@@ -27,7 +28,7 @@ def saveCatalogsjson() -> Catalogs:
         print(f"Error: {ex}")
 
 
-def openCatalogsjson(range: SliceOfUrl) -> Catalogs:
+def open_catalogs_from_file(range: SliceOfUrl) -> Catalogs:
     with open("catalogs.json", encoding="utf-8") as file:
         catalogs = json.load(file)
     url = f"https://pitergsm.ru{catalogs[range]}"
@@ -41,24 +42,24 @@ def openCatalogsjson(range: SliceOfUrl) -> Catalogs:
     return catalog_list
 
 
-def get_catalog_list(range: SliceOfUrl) -> Catalogs:
+def get_catalogs_list(range: SliceOfUrl) -> Catalogs:
     try:
-        return openCatalogsjson(range)
+        return open_catalogs_from_file(range)
     except FileNotFoundError:
-        saveCatalogsjson()
+        upload_catalogs_to_file()
         time.sleep(2)
-        return openCatalogsjson(range)
+        return open_catalogs_from_file(range)
     except TypeError:
         raise TypeError("Unknown type")
 
 
 def iphones() -> Catalogs:
-    return get_catalog_list(0)
+    return get_catalogs_list(0)
 
 
 def ipad() -> Catalogs:
-    return get_catalog_list(1)
+    return get_catalogs_list(1)
 
 
 def mac() -> Catalogs:
-    return get_catalog_list(2)
+    return get_catalogs_list(2)

@@ -3,6 +3,7 @@ from typing import TypeAlias
 
 SliceOfPage: TypeAlias = int
 
+
 @get_catalog("mac")
 def macbook_pro() -> SliceOfPage:
     return 0

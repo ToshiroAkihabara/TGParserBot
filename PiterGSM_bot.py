@@ -2,15 +2,18 @@ from aiogram import types, Router, F
 from aiogram.filters import Command
 from create_bot import dp, bot, admin
 from markups import user_markups
-from handlers import iphones, ipads, mac
+from handlers import ipads, iphones, mac
+from typing import TypeAlias
 import logging
 import asyncio
 
 logger = logging.getLogger(__name__)
 log_level = logging.INFO
 
+MessageFromBot: TypeAlias = str
 
-async def on_startup(bot):
+
+async def on_startup() -> MessageFromBot:
     logging.basicConfig(
         level=logging.INFO,
         format=u"%(filename)s:%(lineno)d #%(levelname)-8s [%(asctime)s] - %(name)s - %(message)s",
@@ -26,7 +29,7 @@ async def on_startup(bot):
     await bot.send_message(admin, "Бот запущен🔋")
 
 
-async def shutdown(bot):
+async def shutdown() -> MessageFromBot:
     await bot.send_message(admin, "Бот отключен🪫")
 
 

@@ -4,9 +4,11 @@ from typing import TypeAlias, TypedDict
 ModelName: TypeAlias = str
 SliceOfUrl: TypeAlias = int
 
+
 class Collection(TypedDict):
     catalog_name: str
     last_page: int
+
 
 def get_catalog(name: ModelName) -> Collection:
     def wrapper_catalogs(func: SliceOfUrl):
@@ -21,12 +23,12 @@ def get_catalog(name: ModelName) -> Collection:
             else:
                 raise ValueError("Unknown value")
             collection = {}
-            for catalog_name, last_page in get_pagination.pagination(catalog[number]):
+            for catalog_name, last_page in get_pagination.get_pagination(
+                catalog[number]
+            ):
                 collection[catalog_name] = last_page
             return collection
+
         return wrapper
+
     return wrapper_catalogs
-
-
-
-    

@@ -7,12 +7,14 @@ from typing import TypeAlias
 
 CatalogName: TypeAlias = str
 
+
 @dataclass(slots=True, frozen=True)
 class Pagination:
     catalog_name = str
     last_page = int
 
-def pagination(catalog: CatalogName) -> Pagination:
+
+def get_pagination(catalog: CatalogName) -> Pagination:
     try:
         count = 1
         while True:

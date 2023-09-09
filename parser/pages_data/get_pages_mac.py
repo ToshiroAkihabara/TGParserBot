@@ -4,9 +4,11 @@ from typing import TypeAlias, TypedDict
 
 LinksOfPages: TypeAlias = list
 
+
 class Collection(TypedDict):
     catalog_name: str
     last_page: int
+
 
 @get_pages
 def page_macbook_pro() -> Collection:
@@ -26,6 +28,7 @@ def page_imac() -> Collection:
 @get_pages
 def page_mac_mini() -> Collection:
     return get_catalogs_mac.mac_mini().items()
+
 
 @get_pages
 def page_mac_studio() -> Collection:

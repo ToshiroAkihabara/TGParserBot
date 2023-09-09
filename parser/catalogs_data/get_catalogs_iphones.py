@@ -3,6 +3,7 @@ from typing import TypeAlias
 
 SliceOfPage: TypeAlias = int
 
+
 @get_catalog("iphone")
 def iphone_14_pro_max() -> SliceOfPage:
     return 0

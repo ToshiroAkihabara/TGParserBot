@@ -4,6 +4,7 @@ from typing import TypeAlias
 
 LinksOfPages: TypeAlias = list
 
+
 @upload_content_to_files("mac")
 def macbook_pro() -> LinksOfPages:
     return get_pages_mac.page_macbook_pro()
@@ -27,4 +28,3 @@ def mac_mini() -> LinksOfPages:
 @upload_content_to_files("mac")
 def mac_studio() -> LinksOfPages:
     return get_pages_mac.page_mac_studio()
-

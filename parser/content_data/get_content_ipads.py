@@ -4,6 +4,7 @@ from typing import TypeAlias
 
 LinksOfPages: TypeAlias = list
 
+
 @upload_content_to_files("ipad")
 def ipad_pro() -> LinksOfPages:
     return get_pages_ipads.page_ipad_pro()
@@ -22,5 +23,3 @@ def ipad_mini() -> LinksOfPages:
 @upload_content_to_files("ipad")
 def ipad() -> LinksOfPages:
     return get_pages_ipads.page_ipad()
-
-

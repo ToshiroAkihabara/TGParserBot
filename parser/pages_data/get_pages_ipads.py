@@ -4,9 +4,11 @@ from typing import TypeAlias, TypedDict
 
 LinksOfPages: TypeAlias = list
 
+
 class Collection(TypedDict):
     catalog_name: str
     last_page: int
+
 
 @get_pages
 def page_ipad_pro() -> Collection:
