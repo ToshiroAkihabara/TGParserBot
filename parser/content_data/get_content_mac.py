@@ -15,7 +15,7 @@ def macbook_air() -> LinksOfPages:
     return get_pages_mac.page_macbook_air()
 
 
-@upload_content_to_files("mac")
+@upload_content_to_files("imac")
 def imac() -> LinksOfPages:
     return get_pages_mac.page_imac()
 

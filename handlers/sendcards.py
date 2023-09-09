@@ -72,24 +72,48 @@ async def reply_choose_model(event, model) -> BotMessageMarkup:
             "Спасибо за Ваше терпение!\nМожет Вас заинтересует другая модель?☺️",
             reply_markup=user_markups.mac(),
         )
+    elif model.split("_")[0] == "imac":
+        await bot.send_message(
+            event.from_user.id,
+            "Спасибо за Ваше терпение!\nМожет Вас заинтересует другая модель?☺️",
+            reply_markup=user_markups.mac(),
+        )
+    elif model.split("_")[0] == "mac":
+        await bot.send_message(
+            event.from_user.id,
+            "Спасибо за Ваше терпение!\nМожет Вас заинтересует другая модель?☺️",
+            reply_markup=user_markups.mac(),
+        )
 
 
 async def reply_sold_model(event, model) -> BotMessageMarkup:
     if model.split("_")[0] == "ipad":
         await bot.send_message(
             event.from_user.id,
-            f"В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
+            "В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
             reply_markup=user_markups.ipad(),
         )
     elif model.split("_")[0] == "iphone":
         await bot.send_message(
             event.from_user.id,
-            f"В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
+            "В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
             reply_markup=user_markups.iphones(),
+        )
+    elif model.split("_")[0] == "macbook":
+        await bot.send_message(
+            event.from_user.id,
+            "В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
+            reply_markup=user_markups.mac(),
+        )
+    elif model.split("_")[0] == "imac":
+        await bot.send_message(
+            event.from_user.id,
+            "В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
+            reply_markup=user_markups.mac(),
         )
     elif model.split("_")[0] == "mac":
         await bot.send_message(
             event.from_user.id,
-            f"В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
+            "В настоящий момент, все экземпляры данной модели распроданы☹️\nВыберите другую модель:",
             reply_markup=user_markups.mac(),
         )

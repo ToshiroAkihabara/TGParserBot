@@ -2,6 +2,7 @@ from parser.config import headers
 from bs4 import BeautifulSoup as BS
 from dataclasses import dataclass
 from typing import TypeAlias
+from requests.exceptions import RequestException
 import requests
 import json
 
@@ -24,6 +25,8 @@ def upload_content_to_files(category: Category) -> CardOfGoods:
             for url in func():
                 if category == "iphone":
                     name = url.split("/")[6].replace("-", "_")
+                elif category == "imac":
+                    name = url.split("/")[6].replace("-", "_")
                 elif category == "mac":
                     name = url.split("/")[6].replace("-", "_")
                 elif category == "ipad":
@@ -32,7 +35,10 @@ def upload_content_to_files(category: Category) -> CardOfGoods:
                         name = "ipad_"
                 else:
                     raise AttributeError("Unknown value")
-                response = requests.get(url=url, headers=headers)
+                try:
+                    response = requests.get(url=url, headers=headers)
+                except RequestException:
+                    raise RequestException(f"Bad url: {url}.")
                 html_code = response.text
                 parse = BS(html_code, "lxml")
                 catalogs = parse.find_all("div", class_="catalog__list like-cards")

@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup as BS
 from parser.config import headers
-import requests
-import time
+from requests.exceptions import RequestException
 from dataclasses import dataclass
 from typing import TypeAlias
+
+import requests
+import time
 
 CatalogName: TypeAlias = str
 
@@ -20,9 +22,12 @@ def get_pagination(catalog: CatalogName) -> Pagination:
         while True:
             url = f"https://pitergsm.ru{catalog}?PAGEN_1={count}"
             time.sleep(2)
-            responce = requests.get(url=url, headers=headers)
-            soup = BS(responce.text, "lxml")
-            pagination_next = soup.find("div", class_="page-paging").find(
+            try:
+                response = requests.get(url=url, headers=headers)
+            except RequestException:
+                raise RequestException(f"Bad url: {url}.")
+            parse = BS(response.text, "lxml")
+            pagination_next = parse.find("div", class_="page-paging").find(
                 "a", class_="paging__next"
             )
             if pagination_next:

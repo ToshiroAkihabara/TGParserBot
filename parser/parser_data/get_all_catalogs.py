@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as BS
 from parser.config import headers
 from typing import TypeAlias
+from requests.exceptions import RequestException
 import requests
 import json
 import time
@@ -12,10 +13,13 @@ SliceOfUrl: TypeAlias = int
 def upload_catalogs_to_file() -> Catalogs:
     try:
         url = "https://pitergsm.ru/catalog/"
-        response = requests.get(url=url, headers=headers)
+        try:
+            response = requests.get(url=url, headers=headers)
+        except RequestException:
+            raise RequestException(f"Bad url: {url}.")
         if response.status_code == 200:
-            soup = BS(response.text, "lxml")
-            catalogs_href = soup.find_all("div", class_="catalog__item")
+            parse = BS(response.text, "lxml")
+            catalogs_href = parse.find_all("div", class_="catalog__item")
             catalog_list = []
             for catalog in catalogs_href:
                 catalog_href = catalog.get("href")
@@ -29,17 +33,25 @@ def upload_catalogs_to_file() -> Catalogs:
 
 
 def open_catalogs_from_file(range: SliceOfUrl) -> Catalogs:
-    with open("catalogs.json", encoding="utf-8") as file:
-        catalogs = json.load(file)
+    try:
+        with open("catalogs.json", encoding="utf-8") as file:
+            catalogs = json.load(file)
+    except FileNotFoundError:
+        raise FileNotFoundError("catalogs.json wasn't found")
+
     url = f"https://pitergsm.ru{catalogs[range]}"
-    responce = requests.get(url=url, headers=headers)
-    soup = BS(responce.text, "lxml")
-    catalogs_href = soup.find_all("li", class_="button-line__item")
-    catalog_list = []
-    for catalog in catalogs_href:
-        catalog_href = catalog.find("a", class_="button-line__btn").get("href")
-        catalog_list.append(catalog_href)
-    return catalog_list
+    try:
+        response = requests.get(url=url, headers=headers)
+    except RequestException:
+        raise RequestException(f"Bad url: {url}.")
+    if response.status_code == 200:
+        parse = BS(response.text, "lxml")
+        catalogs_href = parse.find_all("li", class_="button-line__item")
+        catalog_list = []
+        for catalog in catalogs_href:
+            catalog_href = catalog.find("a", class_="button-line__btn").get("href")
+            catalog_list.append(catalog_href)
+        return catalog_list
 
 
 def get_catalogs_list(range: SliceOfUrl) -> Catalogs:
