@@ -14,14 +14,15 @@ def get_catalog(name: ModelName) -> Collection:
     def wrapper_catalogs(func: SliceOfUrl):
         def wrapper():
             number = func()
-            if name == "ipad":
-                catalog = get_all_catalogs.ipad()
-            elif name == "iphone":
-                catalog = get_all_catalogs.iphones()
-            elif name == "mac":
-                catalog = get_all_catalogs.mac()
-            else:
-                raise ValueError("Unknown value")
+            catalog_getters = {
+                "ipad": get_all_catalogs.ipad,
+                "iphone": get_all_catalogs.iphones,
+                "mac": get_all_catalogs.mac,
+            }
+            if not (getter := catalog_getters[name]):
+                raise ValueError(f"Unknown value: {name}")
+            catalog = getter()
+
             collection = {}
             for catalog_name, last_page in get_pagination.get_pagination(
                 catalog[number]

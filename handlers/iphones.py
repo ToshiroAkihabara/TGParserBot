@@ -3,7 +3,8 @@ from aiogram.utils.markdown import hlink
 from create_bot import bot
 from markups import user_markups
 from parser.content_data import get_content_iphones
-from handlers.sendcards import send_cards_to_user
+from handlers.send_cards import send_cards_to_user
+from handlers.answers import answer_callback_query
 from dataclasses import dataclass
 from typing import TypeAlias
 
@@ -20,51 +21,46 @@ router = Router()
 
 
 @router.callback_query(F.data == "start")
-async def start(call: types.CallbackQuery) -> BotMessageMarkup:
-    await bot.answer_callback_query(call.id)
-    await bot.delete_message(call.from_user.id, call.message.message_id)
+async def start(event: types.CallbackQuery) -> BotMessageMarkup:
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
-        call.from_user.id,
+        event.from_user.id,
         "Выберите интересующий каталог:",
         reply_markup=user_markups.catalogs(),
     )
 
 
 @router.callback_query(F.data == "back")
-async def back(call: types.CallbackQuery) -> BotMessageMarkup:
-    await bot.answer_callback_query(call.id)
-    await bot.delete_message(call.from_user.id, call.message.message_id)
+async def back(event: types.CallbackQuery) -> BotMessageMarkup:
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
-        call.from_user.id,
+        event.from_user.id,
         "Выберите интересующий каталог:",
         reply_markup=user_markups.catalogs(),
     )
 
 
 @router.callback_query(F.data == "close")
-async def close(call: types.CallbackQuery) -> MessageBot:
-    await bot.answer_callback_query(call.id)
-    await bot.delete_message(call.from_user.id, call.message.message_id)
+async def close(event: types.CallbackQuery) -> MessageBot:
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
-        call.from_user.id,
+        event.from_user.id,
         f"Please, send your suggestions and wishes in {hlink('telegram', 'https://t.me/ToshiroAi')}",
     )
 
 
 @router.callback_query(F.data == "iphone")
-async def iphone(call: types.CallbackQuery) -> BotMessageMarkup:
-    await bot.answer_callback_query(call.id)
-    await bot.delete_message(call.from_user.id, call.message.message_id)
+async def iphone(event: types.CallbackQuery) -> BotMessageMarkup:
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
-        call.from_user.id, f"Выберите модель📱:", reply_markup=user_markups.iphones()
+        event.from_user.id, f"Выберите модель📱:", reply_markup=user_markups.iphones()
     )
 
 
 @router.callback_query(lambda event: event.data.startswith("iphone_"))
 async def iphone_models(event: types.callback_query.CallbackQuery) -> MessageBot:
     model = event.data
-    await bot.answer_callback_query(event.id)
-    await bot.delete_message(event.from_user.id, event.message.message_id)
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id,
         f"Ориентировочное время сбора данных ⏳1-2 мин.\nПожалуйста, дождитесь завершения..",

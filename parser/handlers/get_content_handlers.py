@@ -23,52 +23,60 @@ def upload_content_to_files(category: Category) -> CardOfGoods:
         def wrapper():
             cards = []
             for url in func():
-                if category == "iphone":
-                    name = url.split("/")[6].replace("-", "_")
-                elif category == "imac":
-                    name = url.split("/")[6].replace("-", "_")
-                elif category == "mac":
-                    name = url.split("/")[6].replace("-", "_")
-                elif category == "ipad":
-                    name = url.split("/")[7].replace("-", "_")
-                    if name == "ipad":
-                        name = "ipad_"
+                category_getters = {
+                    "iphone": url.split("/")[6].replace("-", "_"),
+                    "imac": url.split("/")[6].replace("-", "_"),
+                    "mac": url.split("/")[6].replace("-", "_"),
+                    "ipad": url.split("/")[7].replace("-", "_"),
+                }
+                if not (getter := category_getters[category]):
+                    raise AttributeError(f"Unknown value: {category}")
+                name = getter
+                if name == "ipad":
+                    name = "ipad_"
+
+                response = requests.get(url=url, headers=headers)
+                if response.status_code == 200:
+                    html_code = response.text
+                    parse = BS(html_code, "lxml")
+                    catalogs = parse.find_all("div", class_="catalog__list like-cards")
+                    get_catalogs_cards(cards, catalogs)
                 else:
-                    raise AttributeError("Unknown value")
-                try:
-                    response = requests.get(url=url, headers=headers)
-                except RequestException:
-                    raise RequestException(f"Bad url: {url}.")
-                html_code = response.text
-                parse = BS(html_code, "lxml")
-                catalogs = parse.find_all("div", class_="catalog__list like-cards")
-                for catalog in catalogs:
-                    items = catalog.find_all("div", class_="catalog__item")
-                    for card in items:
-                        try:
-                            cards.append(
-                                {
-                                    "title": card.find(
-                                        "div", class_="prod-card__title"
-                                    ).text,
-                                    "available": card.find(
-                                        "div",
-                                        class_="prod-card__count icon-check-green nodesktop",
-                                    ).text,
-                                    "price": card.find("div", class_="price__now")
-                                    .text.replace("a", " ")
-                                    .strip(),
-                                    "url": "https://pitergsm.ru"
-                                    + card.find("div", class_="prod-card")
-                                    .find("a", class_="prod-card__link")
-                                    .get("href"),
-                                }
-                            )
-                        except AttributeError:
-                            continue
-            with open(f"{name}.json", "w", encoding="utf-8") as file:
-                json.dump(cards, file, indent=4, ensure_ascii=False)
+                    raise RequestException(f"404 Not Found: {url}")
+
+            upload_to_json(name, cards)
 
         return wrapper
 
     return wrapper_content
+
+
+def get_catalogs_cards(cards, catalogs):
+
+    for catalog in catalogs:
+        items = catalog.find_all("div", class_="catalog__item")
+        for card in items:
+            try:
+                cards.append(
+                    {
+                        "title": card.find("div", class_="prod-card__title").text,
+                        "available": card.find(
+                            "div", class_="prod-card__count icon-check-green nodesktop",
+                        ).text,
+                        "price": card.find("div", class_="price__now")
+                        .text.replace("a", " ")
+                        .strip(),
+                        "url": "https://pitergsm.ru"
+                        + card.find("div", class_="prod-card")
+                        .find("a", class_="prod-card__link")
+                        .get("href"),
+                    }
+                )
+            except AttributeError:
+                continue
+
+
+def upload_to_json(name, cards):
+
+    with open(f"{name}.json", "w", encoding="utf-8") as file:
+        json.dump(cards, file, indent=4, ensure_ascii=False)

@@ -3,7 +3,8 @@ from aiogram.utils.markdown import hlink
 from create_bot import bot
 from markups import user_markups
 from parser.content_data import get_content_mac
-from handlers.sendcards import send_cards_to_user
+from handlers.send_cards import send_cards_to_user
+from handlers.answers import answer_callback_query
 from dataclasses import dataclass
 from typing import TypeAlias
 
@@ -22,8 +23,7 @@ router = Router()
 
 @router.callback_query(F.data == "back")
 async def back(event: types.CallbackQuery) -> BotMessageMarkup:
-    await bot.answer_callback_query(event.id)
-    await bot.delete_message(event.from_user.id, event.message.message_id)
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id,
         "Выберите интересующий каталог:",
@@ -33,8 +33,7 @@ async def back(event: types.CallbackQuery) -> BotMessageMarkup:
 
 @router.callback_query(F.data == "close")
 async def close(event: types.CallbackQuery) -> MessageBot:
-    await bot.answer_callback_query(event.id)
-    await bot.delete_message(event.from_user.id, event.message.message_id)
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id,
         f"Please, send your suggestions and wishes in {hlink('telegram', 'https://t.me/ToshiroAi')}",
@@ -43,8 +42,7 @@ async def close(event: types.CallbackQuery) -> MessageBot:
 
 @router.callback_query(F.data == "mac")
 async def mac(event: types.CallbackQuery) -> BotMessageMarkup:
-    await bot.answer_callback_query(event.id)
-    await bot.delete_message(event.from_user.id, event.message.message_id)
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id, f"Выберите модель💻:", reply_markup=user_markups.mac()
     )
@@ -53,8 +51,7 @@ async def mac(event: types.CallbackQuery) -> BotMessageMarkup:
 @router.callback_query(lambda event: event.data.startswith("mac_"))
 async def mac_models(event: types.CallbackQuery) -> MessageBot:
     model = event.data
-    await bot.answer_callback_query(event.id)
-    await bot.delete_message(event.from_user.id, event.message.message_id)
+    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id,
         f"Ориентировочное время сбора данных ⏳1-2 мин.\nПожалуйста, дождитесь завершения..",
