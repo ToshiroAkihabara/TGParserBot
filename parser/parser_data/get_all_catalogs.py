@@ -13,10 +13,7 @@ SliceOfUrl: TypeAlias = int
 def upload_catalogs_to_file() -> Catalogs:
     try:
         url = "https://pitergsm.ru/catalog/"
-        try:
-            response = requests.get(url=url, headers=headers)
-        except RequestException:
-            raise RequestException(f"Bad url: {url}.")
+        response = requests.get(url=url, headers=headers)
         if response.status_code == 200:
             parse = BS(response.text, "lxml")
             catalogs_href = parse.find_all("div", class_="catalog__item")
@@ -27,7 +24,7 @@ def upload_catalogs_to_file() -> Catalogs:
             with open("catalogs.json", "w", encoding="utf-8") as file:
                 json.dump(catalog_list, file, indent=4, ensure_ascii=False)
         else:
-            return "HTTP 400 Bad Request!"
+            raise RequestException(f"404 Not Found: {url}.")
     except Exception as ex:
         print(f"Error: {ex}")
 
