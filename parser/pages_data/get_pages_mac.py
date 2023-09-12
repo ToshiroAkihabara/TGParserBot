@@ -1,41 +1,35 @@
 from parser.catalogs_data import get_catalogs_mac
+from parser.handlers.get_pages_handlers import get_pages
+from typing import TypeAlias, TypedDict
 
-def page_macbook_pro():
-    for key, count in get_catalogs_mac.macbook_pro().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+LinksOfPages: TypeAlias = list
 
-def page_macbook_air():
-    for key, count in get_catalogs_mac.macbook_air().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_imac():
-    for key, count in get_catalogs_mac.imac().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
-    
-def page_mac_mini():
-    for key, count in get_catalogs_mac.mac_mini().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
 
-def page_mac_studio():
-    for key, count in get_catalogs_mac.mac_studio().items():
-        links = []
-        for count in range(1, count+1):
-            url = f'https://pitergsm.ru{key}?PAGEN_1={count}'
-            links.append(url)
-        return links
+class Collection(TypedDict):
+    catalog_name: str
+    last_page: int
+
+
+@get_pages
+def page_macbook_pro() -> Collection:
+    return get_catalogs_mac.macbook_pro().items()
+
+
+@get_pages
+def page_macbook_air() -> Collection:
+    return get_catalogs_mac.macbook_air().items()
+
+
+@get_pages
+def page_imac() -> Collection:
+    return get_catalogs_mac.imac().items()
+
+
+@get_pages
+def page_mac_mini() -> Collection:
+    return get_catalogs_mac.mac_mini().items()
+
+
+@get_pages
+def page_mac_studio() -> Collection:
+    return get_catalogs_mac.mac_studio().items()
