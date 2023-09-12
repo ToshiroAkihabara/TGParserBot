@@ -21,17 +21,8 @@ router = Router()
 
 
 @router.callback_query(F.data == "start")
-async def start(event: types.CallbackQuery) -> BotMessageMarkup:
-    await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
-    await bot.send_message(
-        event.from_user.id,
-        "Выберите интересующий каталог:",
-        reply_markup=user_markups.catalogs(),
-    )
-
-
 @router.callback_query(F.data == "back")
-async def back(event: types.CallbackQuery) -> BotMessageMarkup:
+async def start_and_back(event: types.CallbackQuery) -> BotMessageMarkup:
     await answer_callback_query(event.id, event.from_user.id, event.message.message_id)
     await bot.send_message(
         event.from_user.id,
