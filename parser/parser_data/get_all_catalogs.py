@@ -26,7 +26,7 @@ def upload_catalogs_to_file() -> Catalogs:
         else:
             raise RequestException(f"404 Not Found: {url}.")
     except Exception as ex:
-        print(f"Error: {ex}")
+        raise Exception(f"Error: {ex}")
 
 
 def open_catalogs_from_file(range: SliceOfUrl) -> Catalogs:
@@ -59,7 +59,7 @@ def get_catalogs_list(range: SliceOfUrl) -> Catalogs:
         time.sleep(2)
         return open_catalogs_from_file(range)
     except TypeError:
-        raise TypeError("Unknown type")
+        raise TypeError(f"Unknown type: {range}")
 
 
 def iphones() -> Catalogs:
